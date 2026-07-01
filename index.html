@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>L'Univers des Héritiers</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="bg-orb bg-orb-one"></div>
+  <div class="bg-orb bg-orb-two"></div>
+
+  <header class="site-header">
+    <a class="brand" href="#accueil" aria-label="Retour à l'accueil">
+      <span class="brand-spark">✦</span>
+      <span>L'Univers<br>des Héritiers</span>
+    </a>
+    <button id="menuBtn" class="menu-btn" aria-label="Ouvrir le menu">☰</button>
+    <nav id="navLinks" class="nav-links" aria-label="Navigation principale">
+      <a href="#accueil">Accueil</a>
+      <a href="#quiz">Quiz</a>
+      <a href="#heroesGallerySection">Héros</a>
+      <a href="#storiesSection">Histoires</a>
+      <a href="#resultat">Résultat</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="accueil" class="hero-section panel">
+      <p class="eyebrow">Test de destinée</p>
+      <h1>Quel héros sommeille en toi&nbsp;?</h1>
+      <p class="lead">Réponds aux questions, révèle ton symbole, puis découvre le personnage qui t'appelle.</p>
+      <div class="hero-actions">
+        <button id="startBtn" class="primary-btn">Commencer l'aventure</button>
+        <a class="secondary-btn" href="#storiesSection">Lire les histoires</a>
+      </div>
+    </section>
+
+    <section id="quiz" class="quiz-section panel hidden" aria-live="polite">
+      <div class="quiz-topline">
+        <span id="questionCounter">Question 1 / 8</span>
+        <span id="progressPercent">0%</span>
+      </div>
+      <div class="progress-track" aria-hidden="true">
+        <div id="progressFill" class="progress-fill"></div>
+      </div>
+      <h2 id="questionText"></h2>
+      <div id="answers" class="answers-grid"></div>
+      <button id="backBtn" class="secondary-btn">Retour</button>
+    </section>
+
+    <section id="resultat" class="result-section panel hidden">
+      <p class="eyebrow">Ton héritage est révélé</p>
+      <h2 id="resultIntroTitle">Un symbole répond à ton âme.</h2>
+      <div class="result-layout">
+        <div class="result-visual">
+          <img id="resultSymbol" class="result-symbol" src="" alt="Symbole du héros révélé">
+          <button id="discoverBtn" class="primary-btn discover-btn">Découvrir qui tu es</button>
+          <img id="resultImage" class="result-portrait hidden" src="" alt="">
+        </div>
+        <div id="resultDetails" class="result-details hidden">
+          <h3 id="resultName"></h3>
+          <p id="resultSubtitle" class="result-subtitle"></p>
+          <blockquote id="resultQuote"></blockquote>
+          <p id="resultDescription" class="result-description"></p>
+          <div id="resultStats" class="stats-grid"></div>
+          <div class="result-buttons">
+            <button id="readResultStoryBtn" class="primary-btn">Lire son histoire</button>
+            <button id="restartBtn" class="secondary-btn restart-btn">Refaire le quiz</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="heroesGallerySection" class="gallery-section">
+      <p class="eyebrow">Galerie</p>
+      <h2>Les Héritiers</h2>
+      <div id="heroesGallery" class="heroes-gallery"></div>
+    </section>
+
+    <section id="storiesSection" class="stories-section">
+      <p class="eyebrow">Archives</p>
+      <h2>Histoires des Héritiers</h2>
+      <p class="section-lead">Choisis un héros pour ouvrir son histoire complète, page par page, directement dans le site.</p>
+      <div id="storiesGrid" class="stories-grid"></div>
+    </section>
+  </main>
+
+  <div id="storyOverlay" class="story-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="storyTitle">
+    <div class="story-reader panel">
+      <div class="story-reader-header">
+        <div>
+          <p class="eyebrow">Archive ouverte</p>
+          <h2 id="storyTitle"></h2>
+          <p id="storyLead" class="story-lead"></p>
+        </div>
+        <button id="closeStoryBtn" class="close-btn" aria-label="Fermer l'histoire">×</button>
+      </div>
+      <div class="story-controls">
+        <a id="storyPdfLink" class="secondary-btn" href="#" target="_blank" rel="noopener">Ouvrir le PDF</a>
+        <button id="storyTopBtn" class="secondary-btn">Revenir au début</button>
+      </div>
+      <div id="storyPages" class="story-pages"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
